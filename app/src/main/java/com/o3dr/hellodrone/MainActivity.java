@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
         }
     }
 
-    @Override
+    //@Override
     public void onDroneConnectionFailed(ConnectionResult result) {
         alertUser("Connection Failed:" + result.getErrorMessage());
     }
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements DroneListener, To
                 extraParams.putInt(ConnectionType.EXTRA_UDP_SERVER_PORT, DEFAULT_UDP_PORT); // Set default baud rate to 14550
             }
 
-            ConnectionParameter connectionParams = new ConnectionParameter(selectedConnectionType, extraParams, null);
+            ConnectionParameter connectionParams =  ConnectionParameter.newUdpConnection(DEFAULT_UDP_PORT, null);
             this.drone.connect(connectionParams);
         }
 
